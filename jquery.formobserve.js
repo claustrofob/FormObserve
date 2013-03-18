@@ -29,6 +29,19 @@
         },
 
         /**
+         * set ignore form changes flag
+         */
+        formIgnoreChanges: function(ignore){
+            var forms = findFormNode(this);
+            forms.each(function(){
+                var form = $(this);
+                form.data(options.ignoreAttr, ignore | 0);
+            });
+
+            return this;
+        },
+
+        /**
          * check if the form was updated since formObserve was called
          */
         formChanged: function(){
